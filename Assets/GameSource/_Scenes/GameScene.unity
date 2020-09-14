@@ -175,6 +175,7 @@ MonoBehaviour:
   levelUpPanel: {fileID: 833303714}
   score: {fileID: 1488809680}
   earnPoint: 0
+  carModel: {fileID: 1976346522}
 --- !u!120 &134746283
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -4209,7 +4210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475796, guid: d66646b9f8555d6448286f6e532e577e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.0000021495882
       objectReference: {fileID: 0}
     - target: {fileID: 475796, guid: d66646b9f8555d6448286f6e532e577e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4217,19 +4218,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475796, guid: d66646b9f8555d6448286f6e532e577e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.00000029020157
       objectReference: {fileID: 0}
     - target: {fileID: 475796, guid: d66646b9f8555d6448286f6e532e577e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475796, guid: d66646b9f8555d6448286f6e532e577e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475796, guid: d66646b9f8555d6448286f6e532e577e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475796, guid: d66646b9f8555d6448286f6e532e577e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4738,6 +4739,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1976346522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 112578, guid: d66646b9f8555d6448286f6e532e577e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1665317244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2071920057
 GameObject:
   m_ObjectHideFlags: 0
