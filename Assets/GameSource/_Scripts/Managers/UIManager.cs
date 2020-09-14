@@ -5,6 +5,7 @@ using NaughtyAttributes;
 using TMPro;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -64,7 +65,8 @@ public class UIManager : Singleton<UIManager>
     }
     public void RestartGame()
     {
-        LevelManager.Instance.LoadNewLevel();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //LevelManager.Instance.LoadNewLevel();
     }
     public void PauseGame()
     {

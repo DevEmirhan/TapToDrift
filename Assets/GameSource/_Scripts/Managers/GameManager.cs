@@ -22,6 +22,13 @@ public class GameManager : Singleton<GameManager>
     [ReadOnly]
     [SerializeField]
     private GameState _gameState;
+    private PlayerController player;
+
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerController>();
+    }
+
     public GameState gameState
     {
         get { return _gameState; }
@@ -45,7 +52,7 @@ public class GameManager : Singleton<GameManager>
                         break;
                     case GameState.Play:
                         //---------------------------------------------------------------------------Start
-
+                        player.isGameOn = true;
                         //---------------------------------------------------------------------------End
                         break;
                     case GameState.Win:
@@ -58,6 +65,7 @@ public class GameManager : Singleton<GameManager>
                         //---------------------------------------------------------------------------End
                         break;
                     case GameState.Lose:
+                        player.isGameOn = false;
                         UIManager.Instance.ShowLosePanel();
                         SoundManager.Instance.PlayLoseSound();
                         //---------------------------------------------------------------------------Start
