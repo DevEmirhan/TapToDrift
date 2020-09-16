@@ -9,6 +9,8 @@ TagManager:
   - LevelUp
   - Point
   - GetLine
+  - GetLineH
+  - GetLineF
   layers:
   - Default
   - TransparentFX

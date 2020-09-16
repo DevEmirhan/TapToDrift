@@ -6,16 +6,7 @@ public class ActivatePin : MonoBehaviour
 {
     private PlayerController playerController;
     public bool isRightt = true;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")

@@ -6,20 +6,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     public bool isGameOn = false;
+
+    public bool earnPoint = false;
+    private int level;
+
     public float movementSpeed = 1f;
     private float baseSpeed;
+
     public bool isRight = true;
+    public bool isVertical = true;
+    private bool isTurning = false;
+
     private LineRenderer line;
     public GameObject activePin;
-    private bool isTurning = false;
     public GameObject levelUpPanel;
-    public TextMeshProUGUI score;
-    public bool earnPoint = false;
-    private int playerScore;
     public GameObject carModel;
-    private int level;
+  
+    
+    public TextMeshProUGUI score;
+    private int playerScore;
 
     void Start()
     {
@@ -75,6 +81,7 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.gameState = GameState.Lose;
         } else if (other.gameObject.tag == "LevelUp")
         {
+            isVertical = true;
             GetOnTheLine();
             StartCoroutine("OpenLevelUp");
             movementSpeed = 60;
@@ -84,12 +91,25 @@ public class PlayerController : MonoBehaviour
             movementSpeed = baseSpeed;
             for (int i = 0; i < level; i++)
             {
-                movementSpeed += 5;
+                movementSpeed += 10;
             }
             
         } else if(other.gameObject.tag == "GetLine")
         {
+            isVertical = true;
             GetOnTheLine();
+        }
+        else if (other.gameObject.tag == "GetLineH")
+        {
+            isVertical = false;
+            GetOnTheLine();
+        }
+        else if (other.gameObject.tag == "GetLineF")
+        {
+            isVertical = false;
+            GetOnTheLine();
+            StartCoroutine("OpenLevelUp");
+            movementSpeed = 60;
         }
     }
    
@@ -112,16 +132,19 @@ public class PlayerController : MonoBehaviour
 
     public void GetOnTheLine()
     {
-        if(Mathf.Abs(transform.localEulerAngles.y) <= 25)
+
+        if (isVertical)
         {
             transform.DOLocalRotate(Vector3.zero, 0.2f).SetEase(Ease.OutBounce);
-        } else if(transform.localEulerAngles.y >= 65 && transform.localEulerAngles.y <=115)
+        } else if (isVertical == false && isRight == true)
         {
-            transform.DOLocalRotate(new Vector3(0f,90f,0f), 0.2f).SetEase(Ease.OutBounce);
-        } else if(transform.localEulerAngles.y <= -65 && transform.localEulerAngles.y >= -115)
+            transform.DOLocalRotate(new Vector3(0f, 90f, 0f), 0.2f).SetEase(Ease.OutBounce);
+        } else if (isVertical == false && isRight == false)
         {
             transform.DOLocalRotate(new Vector3(0f, -90f, 0f), 0.2f).SetEase(Ease.OutBounce);
         }
+
+        
     }
 
 }
